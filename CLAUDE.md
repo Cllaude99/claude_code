@@ -1,3 +1,8 @@
+추가할 것들
+
+- 답변은 한국어로
+- 커서 룰 참고해서 적을 것
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
