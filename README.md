@@ -14,6 +14,7 @@
 - `--print` 또는 `-p`: 대화형 모드 없이 응답 출력
 - `--model`: 현재 세션의 모델 설정
 - `--continue` 또는 `-c`: 최근 대화 이어서 진행
+- `--resume` : 이전 대화 목록을 확인
 - `--verbose`: 상세 로깅 활성화
 - `--output-format`: 응답 형식 지정 (text, json, stream-json)
 
@@ -95,7 +96,7 @@ echo "이 코드의 성능 문제를 분석해주세요: $ARGUMENTS" > .claude/c
 # 사용: /optimize @src/app.js
 ```
 
-### 이미지 첨부 방법
+### 🌱 이미지 첨부 방법
 
 **드래그 앤 드롭**
 
@@ -110,7 +111,7 @@ echo "이 코드의 성능 문제를 분석해주세요: $ARGUMENTS" > .claude/c
 
 - `@` 를 사용하여 프로젝트 내 이미지 파일 경로를 참조
 
-### Hooks 설정
+### 🌱 Hooks 설정
 
 **설정 파일 위치**
 
