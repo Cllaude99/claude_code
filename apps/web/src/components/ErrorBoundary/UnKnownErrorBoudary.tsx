@@ -1,4 +1,5 @@
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
+
 import SomethingWentWrong from '@/components/ErrorPage/SomethingWentWrong';
 
 const UnknownErrorFallback = ({ error }: FallbackProps) => {

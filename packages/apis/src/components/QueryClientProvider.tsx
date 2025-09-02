@@ -1,8 +1,9 @@
-import { isAxiosError } from 'axios';
 import {
   QueryClient,
   QueryClientProvider as BaseQueryClientProvider,
 } from '@tanstack/react-query';
+import { isAxiosError } from 'axios';
+
 import { getAPIErrorInfo } from '../utils';
 
 const queryClient = new QueryClient({

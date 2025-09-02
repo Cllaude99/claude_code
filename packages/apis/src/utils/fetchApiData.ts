@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
+
 import { instance } from './instance';
 
 export const fetchApiData = async <ResponseData, RequestData = ResponseData>(

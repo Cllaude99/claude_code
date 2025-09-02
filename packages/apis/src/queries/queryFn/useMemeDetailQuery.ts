@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+
 import { fetchApiData } from '../../utils/fetchApiData';
 import { QUERY_KEY } from '../queryKey';
 

@@ -1,7 +1,10 @@
-import { useQueryErrorResetBoundary } from '@tanstack/react-query';
-import { getAPIErrorInfo } from '@cllaude99/apis';
-import { isAxiosError } from 'axios';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
+
+import { useQueryErrorResetBoundary } from '@tanstack/react-query';
+import { isAxiosError } from 'axios';
+
+import { getAPIErrorInfo } from '@cllaude99/apis';
+
 import SomethingWentWrong from '@/components/ErrorPage/SomethingWentWrong';
 
 const APIErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {

@@ -12,5 +12,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.32.0"
   }
 }

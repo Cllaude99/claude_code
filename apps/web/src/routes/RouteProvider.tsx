@@ -4,14 +4,15 @@ import {
   RouterProvider,
   Outlet,
 } from 'react-router-dom';
-import { PATH } from '@/constants/path';
 
-import SomethingWentWrong from '@/components/ErrorPage/SomethingWentWrong';
+import DefaultComponent from '@/components/DefaultComponent';
 import APIErrorBoundary from '@/components/ErrorBoundary/APIErrorBoundary';
 import UnknownErrorBoundary from '@/components/ErrorBoundary/UnKnownErrorBoudary';
+import SomethingWentWrong from '@/components/ErrorPage/SomethingWentWrong';
+import { PATH } from '@/constants/path';
+
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import DefaultComponent from '@/components/DefaultComponent';
 
 type ROUTE_TYPE = 'PRIVATE' | 'PUBLIC';
 

@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
+
 import { StyledButton, ButtonProps } from './Button.styles';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps;

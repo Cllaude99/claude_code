@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { QUERY_KEY } from '../queryKey';
+
 import { fetchApiData } from '../../utils/fetchApiData';
+import { QUERY_KEY } from '../queryKey';
 
 interface MemeQuizQuestion {
   message: string;

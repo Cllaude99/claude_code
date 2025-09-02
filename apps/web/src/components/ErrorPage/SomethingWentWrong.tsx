@@ -1,8 +1,11 @@
-import Layout from '@/components/Layout';
-import { useTheme } from '@emotion/react';
-import SomethingWentWrongIcon from '@/assets/images/SomethingWentWrong.png';
-import * as S from './SomethingWentWrong.styles';
 import { useNavigate } from 'react-router-dom';
+
+import { useTheme } from '@emotion/react';
+
+import SomethingWentWrongIcon from '@/assets/images/SomethingWentWrong.png';
+import Layout from '@/components/Layout';
+
+import * as S from './SomethingWentWrong.styles';
 
 interface SomethingWentWrongProps {
   onRetry?: () => void;

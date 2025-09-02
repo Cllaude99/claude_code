@@ -1,8 +1,9 @@
 import 'the-new-css-reset/css/reset.css';
 import './index.css';
 
-import { Cllaude99UIProvider } from '@cllaude99/ui';
 import { QueryClientProvider, QueryDevTools } from '@cllaude99/apis';
+import { Cllaude99UIProvider } from '@cllaude99/ui';
+
 import RouteProvider from './routes/RouteProvider';
 
 const App = () => {
