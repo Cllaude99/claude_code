@@ -8,9 +8,10 @@ Claude Code(claude.ai/code)가 이 저장소에서 작업할 때 참고하는 �
 2. [프로젝트 개요](#프로젝트-개요)
 3. [개발 명령어](#개발-명령어)
 4. [기술 스택 & 아키텍처](#기술-스택--아키텍처)
-5. [중요한 개발 규칙](#중요한-개발-규칙)
-6. [코드 작성 가이드라인](#코드-작성-가이드라인)
-7. [파일 구조 패턴](#파일-구조-패턴)
+5. [Claude Code 커스텀 커맨드](#claude-code-커스텀-커맨드)
+6. [중요한 개발 규칙](#중요한-개발-규칙)
+7. [코드 작성 가이드라인](#코드-작성-가이드라인)
+8. [파일 구조 패턴](#파일-구조-패턴)
 
 ---
 
@@ -41,12 +42,13 @@ claude_code/
 └── packages/
     ├── ui/               # UI 컴포넌트 라이브러리
     ├── apis/             # API 관련 유틸리티 및 React Query 설정
+    ├── icon/             # SVG 아이콘 컴포넌트 라이브러리
     ├── eslint-config/    # 공유 ESLint 설정
     └── typescript-config/ # 공유 TypeScript 설정
 ```
 
 ### 패키지 의존성
-- `apps/web` → `@cllaude99/ui`, `@cllaude99/apis` 사용
+- `apps/web` → `@cllaude99/ui`, `@cllaude99/apis`, `@cllaude99/icon` 사용
 - 모든 패키지 → `@cllaude99/eslint-config`, `@cllaude99/typescript-config` 공유
 
 ---
@@ -70,6 +72,11 @@ pnpm build        # 프로덕션 빌드 (TypeScript 컴파일 + Vite 빌드)
 pnpm preview      # 빌드된 애플리케이션 미리보기
 pnpm lint         # ESLint 검사
 pnpm type-check   # TypeScript 타입 검사
+pnpm test         # 단위 테스트 실행 (Jest)
+pnpm test:watch   # 테스트 감시 모드
+pnpm test:coverage # 테스트 커버리지 확인
+pnpm test:e2e     # E2E 테스트 실행 (Playwright)
+pnpm test:e2e:ui  # E2E 테스트 UI 모드
 ```
 
 ---
@@ -84,6 +91,7 @@ pnpm type-check   # TypeScript 타입 검사
 - **HTTP Client**: Axios with interceptors
 - **Animation**: Motion (Framer Motion)
 - **Error Handling**: React Error Boundary
+- **Testing**: Jest + Testing Library + Playwright
 
 ### 아키텍처 패턴
 - **디자인 시스템**: `breakpoints`, `palette`, `typography`, `theme` 모듈
@@ -95,7 +103,122 @@ pnpm type-check   # TypeScript 타입 검사
 ### 디렉토리별 역할
 - **`packages/ui`**: 재사용 가능한 UI 컴포넌트와 디자인 시스템
 - **`packages/apis`**: API 호출, React Query 설정, HTTP 인터셉터
+- **`packages/icon`**: SVG 기반 아이콘 컴포넌트 라이브러리
 - **`apps/web`**: 메인 웹 애플리케이션, UI와 API 패키지 조합
+
+### 테스트 환경
+- **단위 테스트**: Jest + Testing Library (React 컴포넌트, 훅, 유틸리티)
+- **E2E 테스트**: Playwright (브라우저 자동화, 통합 테스트)
+- **테스트 구조**: `src/test/unit/`, `src/test/e2e/` 폴더 분리
+- **설정 파일**: `jest.config.js`, `playwright.config.ts`, `setupTests.ts`
+
+---
+
+## Claude Code 커스텀 커맨드
+
+프로젝트에는 개발 워크플로우를 자동화하기 위한 Claude Code 커스텀 커맨드들이 `.claude/commands/` 디렉토리에 정의되어 있습니다.
+
+### 사용 가능한 커맨드
+
+#### /commit
+스마트 커밋 메시지 생성 및 커밋 자동화
+```bash
+/commit
+```
+**주요 기능:**
+- Git 변경사항 자동 분석 및 스테이징
+- Conventional Commit 형식으로 메시지 자동 생성 (feat, fix, refactor, design, docs, test, chore)
+- 한국어 커밋 메시지 생성
+- 자동 커밋 실행
+
+#### /pr
+Pull Request 메시지 자동 생성
+```bash
+/pr
+```
+**주요 기능:**
+- 현재 브랜치의 변경사항 분석
+- PR 템플릿 기반 설명 자동 생성
+- 체크리스트 및 테스트 계획 포함
+- GitHub CLI 연동 (선택적)
+
+#### /test
+테스트 코드 자동 생성
+```bash
+/test <파일경로>
+/test src/components/Button/index.tsx
+/test src/hooks/useUser.ts
+```
+**주요 기능:**
+- 지정된 파일 분석 후 단위 테스트 및 E2E 테스트 코드 생성
+- Jest + Testing Library 기반 단위 테스트
+- Playwright 기반 E2E 테스트
+- 컴포넌트, 훅, 유틸리티 함수별 최적화된 테스트 패턴
+
+**생성되는 테스트 구조:**
+```
+apps/web/src/test/
+├── unit/                    # 단위 테스트
+│   ├── components/
+│   ├── hooks/
+│   └── utils/
+└── e2e/                     # E2E 테스트
+    ├── components/
+    └── flows/
+```
+
+#### /refactor
+시니어 수준 리팩토링 자동화
+```bash
+/refactor <파일1> <파일2> ...
+/refactor src/components/UserForm.tsx src/hooks/useUser.ts
+```
+**주요 기능:**
+- 복잡한 컴포넌트를 단일 책임 원칙에 따라 분리
+- 커스텀 훅으로 로직 추출
+- Props Drilling 제거 및 컴포지션 패턴 적용
+- 가독성, 예측가능성, 응집성, 결합도 개선
+- Before/After 비교 및 개선사항 설명
+
+**리팩토링 패턴:**
+- 조건부 렌더링 → 별도 컴포넌트 분리
+- 복잡한 상태 로직 → 커스텀 훅 추출
+- 긴 컴포넌트 → 단일 책임 컴포넌트로 분할
+- Props 전달 → 컴포지션 패턴 적용
+
+### 커맨드 파일 구조
+
+```
+.claude/
+└── commands/
+    ├── commit.md       # 커밋 자동화
+    ├── pr.md           # PR 생성
+    ├── test.md         # 테스트 코드 생성
+    └── refactor.md     # 리팩토링 자동화
+```
+
+### 개발 워크플로우 예시
+
+```bash
+# 1. 기능 개발 후 테스트 작성
+/test src/components/NewFeature.tsx
+
+# 2. 코드 리팩토링 (필요시)
+/refactor src/components/NewFeature.tsx
+
+# 3. 변경사항 커밋
+/commit
+
+# 4. PR 생성
+/pr
+```
+
+### 베스트 프랙티스
+
+- **테스트 우선**: 새 기능 개발 후 즉시 `/test` 커맨드로 테스트 코드 생성
+- **점진적 리팩토링**: `/refactor` 커맨드로 코드 품질 지속적 개선
+- **일관된 커밋**: `/commit` 커맨드로 Conventional Commit 형식 유지
+- **체계적 PR**: `/pr` 커맨드로 리뷰어가 이해하기 쉬운 PR 작성
 
 ---
 
@@ -722,15 +845,60 @@ export const validateLoginForm = (email: string, password: string) => {
 
 ## 추가 참고사항
 
-### ESLint 자동 정렬 활성화
-```bash
-# 자동 수정 명령어
-pnpm lint --fix
+### 개발 환경 설정
 
-# VSCode 설정 권장
-"editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true
+#### VSCode 설정 (.vscode/settings.json)
+프로젝트에는 팀 전체가 일관된 개발 환경을 사용할 수 있도록 VSCode 설정이 포함되어 있습니다:
+
+```json
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/pnpm-lock.yaml": true,
+    "**/dist": true,
+    "**/.turbo": true
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
 ```
 
-이 가이드라인을 따라 일관되고 유지보수 가능한 코드를 작성하세요.
+**주요 기능:**
+- **자동 포매팅**: 파일 저장 시 Prettier 자동 실행
+- **ESLint 자동 수정**: import 순서 자동 정렬 및 린트 오류 자동 수정
+- **검색 최적화**: 불필요한 파일/폴더 검색 제외
+- **모노레포 지원**: 각 패키지별 ESLint 설정 자동 감지
+- **TypeScript 지원**: 워크스페이스 TypeScript 버전 사용 및 자동완성 향상
+
+#### Node.js 버전 관리 (.nvmrc)
+```
+20.11.0
+```
+
+팀 전체가 동일한 Node.js 버전을 사용할 수 있도록 `.nvmrc` 파일이 설정되어 있습니다.
+
+**사용법:**
+```bash
+# 프로젝트 권장 Node.js 버전으로 전환
+nvm use
+
+# 해당 버전이 설치되지 않은 경우 설치
+nvm install
+```
+
+#### ESLint 자동 정렬 활성화
+```bash
+# 자동 수정 명령어
+pnpm lint --fix
+```
+
+이 가이드라인과 개발 환경 설정을 따라 일관되고 유지보수 가능한 코드를 작성하세요.
