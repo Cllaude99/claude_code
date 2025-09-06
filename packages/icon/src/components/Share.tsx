@@ -1,6 +1,6 @@
-import { IconProps } from '@/assets/icons/types';
+import { IconProps } from '../types';
 
-const ShareIcon = ({ width = 24, height = 24 }: IconProps) => {
+const Share = ({ width = 24, height = 24 }: IconProps) => {
   return (
     <svg
       width={width}
@@ -20,4 +20,4 @@ const ShareIcon = ({ width = 24, height = 24 }: IconProps) => {
   );
 };
 
-export default ShareIcon;
+export default Share;

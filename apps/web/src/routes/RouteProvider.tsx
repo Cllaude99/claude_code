@@ -9,7 +9,7 @@ import DefaultComponent from '@/components/DefaultComponent';
 import APIErrorBoundary from '@/components/ErrorBoundary/APIErrorBoundary';
 import UnknownErrorBoundary from '@/components/ErrorBoundary/UnKnownErrorBoudary';
 import SomethingWentWrong from '@/components/ErrorPage/SomethingWentWrong';
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';

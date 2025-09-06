@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { useTheme } from '@emotion/react';
 
-import SomethingWentWrongIcon from '@/assets/images/SomethingWentWrong.png';
 import Layout from '@/components/Layout';
 
 import * as S from './SomethingWentWrong.styles';
@@ -30,7 +29,7 @@ const SomethingWentWrong = ({
       <S.Container>
         <S.IconWrapper>
           <S.ErrorImage
-            src={SomethingWentWrongIcon}
+            src="/SomethingWentWrong.png"
             alt="오류가 발생했습니다"
           />
         </S.IconWrapper>

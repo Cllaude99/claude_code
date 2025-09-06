@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { mq } from '@cllaude99/ui';
 
-export const Container = styled.div`
+const Container = styled.div`
   padding: 16px;
   min-height: 100vh;
   background-color: ${({ theme }) => theme.palette.gray['gray-1']};
@@ -16,7 +16,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Header = styled.header`
+const Header = styled.header`
   text-align: center;
   margin-bottom: 32px;
 
@@ -29,7 +29,7 @@ export const Header = styled.header`
   }
 `;
 
-export const Section = styled.section`
+const Section = styled.section`
   margin-bottom: 24px;
 
   ${mq.tablet} {
@@ -41,7 +41,7 @@ export const Section = styled.section`
   }
 `;
 
-export const Title = styled.h1`
+const Title = styled.h1`
   ${({ theme }) => theme.typography.title['subhead-long1']};
   color: ${({ theme }) => theme.palette.gray['gray-9']};
   margin-bottom: 16px;
@@ -56,7 +56,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Description = styled.p`
+const Description = styled.p`
   ${({ theme }) => theme.typography.body['body-long1']};
   color: ${({ theme }) => theme.palette.gray['gray-6']};
   margin-bottom: 24px;
@@ -68,7 +68,7 @@ export const Description = styled.p`
   }
 `;
 
-export const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -83,7 +83,7 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const Button = styled.a`
+const Button = styled.a`
   ${({ theme }) => theme.typography.title['subhead-long1']};
   display: flex;
   align-items: center;
@@ -114,3 +114,13 @@ export const Button = styled.a`
     }
   }
 `;
+
+export {
+  Container,
+  Header,
+  Section,
+  Title,
+  Description,
+  ButtonContainer,
+  Button,
+};
