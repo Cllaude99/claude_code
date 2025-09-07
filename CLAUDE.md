@@ -190,11 +190,41 @@ apps/web/src/test/
 
 ```
 .claude/
-└── commands/
-    ├── commit.md       # 커밋 자동화
-    ├── pr.md           # PR 생성
-    ├── test.md         # 테스트 코드 생성
-    └── refactor.md     # 리팩토링 자동화
+├── commands/           # 커스텀 커맨드
+│   ├── commit.md       # 커밋 자동화
+│   ├── pr.md           # PR 생성
+│   ├── test.md         # 테스트 코드 생성
+│   └── refactor.md     # 리팩토링 자동화
+└── settings.json       # Hooks 및 Claude Code 설정
+```
+
+#### settings.json 구조 (공식 문서 기준)
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "사용자 요청 시 실행할 명령어"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "파일 수정 후 실행할 검증 명령어"
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
 ### 개발 워크플로우 예시
@@ -219,6 +249,46 @@ apps/web/src/test/
 - **점진적 리팩토링**: `/refactor` 커맨드로 코드 품질 지속적 개선
 - **일관된 커밋**: `/commit` 커맨드로 Conventional Commit 형식 유지
 - **체계적 PR**: `/pr` 커맨드로 리뷰어가 이해하기 쉬운 PR 작성
+
+### Hooks 자동화 시스템
+
+프로젝트에는 코드 품질을 자동으로 검증하는 hooks 시스템이 설정되어 있습니다.
+
+#### 설정된 Hooks
+
+**1. UserPromptSubmit Hook**
+```bash
+# 사용자 요청 시 사전 검증
+🚀 요청 처리 시작 - 사전 검증 중...
+pnpm lint --fix && pnpm type-check
+✅ 사전 검증 완료
+```
+
+**2. PostToolUse Hook (Write|Edit|MultiEdit 매처)**
+```bash
+# 파일 수정 후 CI와 동일한 검증 파이프라인 실행
+📝 파일 수정 완료
+🔍 GitHub Actions CI와 동일한 검증 실행 중...
+
+1️⃣ 빌드 검증...
+2️⃣ 린트 검사 및 자동 수정...
+3️⃣ 타입 검사...
+
+🎉 모든 검증 통과! GitHub Actions CI와 동일한 품질 확보
+```
+
+#### 자동화 워크플로우
+
+1. **요청 접수** → 사전 검증 (lint, type-check)
+2. **파일 수정** → 전체 검증 파이프라인 (build, lint, type-check)
+3. **검증 실패** → 자동 재시도 및 수정 안내
+4. **모든 검증 통과** → 작업 완료
+
+**장점:**
+- GitHub Actions CI 실행 전 로컬 검증 완료
+- 100% CI 통과율 보장
+- 실시간 코드 품질 피드백
+- 개발 워크플로우 자동화
 
 ---
 
