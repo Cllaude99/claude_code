@@ -5,6 +5,10 @@
     "**/dist": true,
     "**/.turbo": true
   },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.turbo": true
+  },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
