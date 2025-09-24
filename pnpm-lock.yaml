@@ -80,10 +80,10 @@ importers:
     devDependencies:
       '@cllaude99/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/eslint-config
+        version: link:../../packages/config/eslint
       '@cllaude99/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/typescript-config
+        version: link:../../packages/config/typescript
       '@playwright/test':
         specifier: ^1.55.0
         version: 1.55.0
@@ -168,10 +168,10 @@ importers:
     devDependencies:
       '@cllaude99/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../config/eslint
       '@cllaude99/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../config/typescript
       '@types/react':
         specifier: ^18.2.0
         version: 18.3.23
@@ -185,7 +185,9 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
 
-  packages/eslint-config:
+  packages/config: {}
+
+  packages/config/eslint:
     dependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.3.1
@@ -207,6 +209,8 @@ importers:
         specifier: ^2.32.0
         version: 2.32.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)
 
+  packages/config/typescript: {}
+
   packages/icon:
     dependencies:
       react:
@@ -215,10 +219,10 @@ importers:
     devDependencies:
       '@cllaude99/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../config/eslint
       '@cllaude99/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../config/typescript
       '@types/react':
         specifier: ^18.2.0
         version: 18.3.23
@@ -231,15 +235,6 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
-
-  packages/typescript-config:
-    dependencies:
-      '@emotion/react':
-        specifier: ^11.11.4
-        version: 11.14.0(@types/react@18.3.23)(react@18.3.1)
-      '@emotion/styled':
-        specifier: ^11.11.0
-        version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(react@18.3.1)
 
   packages/ui:
     dependencies:
@@ -255,10 +250,10 @@ importers:
     devDependencies:
       '@cllaude99/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../config/eslint
       '@cllaude99/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../config/typescript
       '@types/react':
         specifier: ^18.2.0
         version: 18.3.23
@@ -5083,7 +5078,7 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.7.1
+      semver: 7.7.2
       ts-api-utils: 1.4.3(typescript@5.8.2)
     optionalDependencies:
       typescript: 5.8.2

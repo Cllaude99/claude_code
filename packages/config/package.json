@@ -1,0 +1,10 @@
+{
+  "name": "@cllaude99/config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "eslint",
+    "typescript"
+  ]
+}
