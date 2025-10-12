@@ -42,14 +42,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Setup Turbo cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - name: Install dependencies
         run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm turbo build --filter=[HEAD^1]
 
       - name: Lint
-        run: pnpm lint
+        run: pnpm turbo lint --filter=[HEAD^1]
 
       - name: Type check
-        run: pnpm type-check
+        run: pnpm turbo type-check --filter=[HEAD^1]
