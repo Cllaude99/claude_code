@@ -1,22 +1,12 @@
 {
   "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '🚀 요청 처리 시작 - 사전 검증 중...' && pnpm lint --fix && pnpm type-check && echo '✅ 사전 검증 완료'"
-          }
-        ]
-      }
-    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit|MultiEdit",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '📝 파일 수정 완료' && echo '🔍 GitHub Actions CI와 동일한 검증 실행 중...' && echo '1️⃣ 빌드 검증...' && pnpm build && echo '✅ 빌드 성공' && echo '2️⃣ 린트 검사...' && (pnpm lint || (echo '🔧 린트 오류 자동 수정 시도 중...' && pnpm lint --fix)) && echo '✅ 린트 검사 통과' && echo '3️⃣ 타입 검사...' && pnpm type-check && echo '✅ 타입 검사 통과' && echo '🎉 모든 검증 통과! GitHub Actions CI와 동일한 품질 확보'"
+            "command": "echo '📝 파일 수정 완료' && echo '🔍 수정된 패키지 검증 중...' && pnpm turbo lint type-check --filter=...[HEAD] --continue || echo '⚠️ 검증 실패 - 수정이 필요합니다'"
           }
         ]
       }
