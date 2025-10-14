@@ -1,0 +1,72 @@
+---
+title: '개발 블로그에 오신 것을 환영합니다'
+description: '첫 번째 블로그 포스트입니다. 이 블로그는 Next.js, Markdown, Tailwind CSS로 구축되었습니다.'
+date: '2025-01-15'
+published: true
+tags: ['Next.js', 'Markdown', 'Tailwind CSS', 'TypeScript']
+category: 'General'
+author: 'Default Author'
+---
+
+# 개발 블로그에 오신 것을 환영합니다
+
+이 블로그는 **Next.js 15**, **Markdown**, **Tailwind CSS**로 구축된 현대적인 개발 블로그입니다.
+
+## 주요 기능
+
+### 1. Markdown 지원
+
+Markdown을 사용하여 깔끔하고 읽기 쉬운 콘텐츠를 작성할 수 있습니다.
+
+```typescript
+// 예제 코드
+const greeting = (name: string) => {
+  return 'Hello, ' + name + '!';
+};
+
+console.log(greeting('World'));
+```
+
+### 2. 코드 하이라이팅
+
+`rehype-highlight`를 사용한 아름다운 코드 하이라이팅을 제공합니다.
+
+### 3. 다크 모드
+
+`next-themes`를 통해 다크 모드를 지원합니다.
+
+### 4. 타입 안전성
+
+TypeScript를 통해 완전한 타입 안전성을 제공합니다.
+
+## 이미지 사용 예시
+
+### 기본 마크다운 이미지
+
+![테스트 이미지](/testimg.png)
+
+위 이미지는 `public/testimg.svg` 파일을 사용합니다. 마크다운에서 이미지를 추가하려면 `![alt text](/image-path)` 형식을 사용하세요.
+
+### 이미지 경로 규칙
+
+- `public` 폴더의 파일은 `/` 경로로 시작합니다
+- 예: `public/testimg.svg` → `/testimg.svg`
+- 예: `public/images/photo.png` → `/images/photo.png`
+
+## 기술 스택
+
+- **Next.js 15** - App Router
+- **TypeScript** - 타입 안전성
+- **react-markdown** - Markdown 렌더링
+- **Tailwind CSS** - 스타일링
+- **rehype-highlight** - 코드 하이라이팅
+
+## 앞으로의 계획
+
+- 검색 기능 추가
+- 카테고리 및 태그 페이지
+- 댓글 시스템 (giscus)
+- RSS 피드
+- 시리즈 글 관리
+
+즐거운 블로깅 되세요!

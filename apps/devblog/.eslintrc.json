@@ -1,0 +1,3 @@
+{
+  "extends": ["@cllaude99/eslint-config", "next/core-web-vitals"]
+}
