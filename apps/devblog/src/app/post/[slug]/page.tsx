@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PostPageProps) {
   }
 
   return {
-    title: post.title,
+    title: `cllaude99 | ${post.title}`,
     description: post.description,
   };
 }

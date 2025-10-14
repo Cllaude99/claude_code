@@ -3,7 +3,7 @@ import { ThemeProvider } from 'next-themes';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: '개발 블로그',
+  title: 'cllaude99',
   description: 'Next.js, TypeScript, Markdown으로 구축된 개발 블로그',
   keywords: ['Next.js', 'TypeScript', 'Markdown', 'Tailwind CSS'],
   icons: {
