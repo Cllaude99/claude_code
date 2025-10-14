@@ -54,8 +54,8 @@ export function AboutContent() {
       </section>
 
       {/* NPX 명령어 섹션 */}
-      <section className="mb-8">
-        <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+      <section className="mb-6">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
           Execute the cllaude99 CLI as follows
         </h2>
         <div
@@ -79,8 +79,8 @@ export function AboutContent() {
       </section>
 
       {/* Contacts 섹션 */}
-      <section className="pt-8 border-t border-gray-200 dark:border-gray-800">
-        <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+      <section className="pt-4 border-t border-gray-200 dark:border-gray-800">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
           Contacts
         </h2>
         <div className="flex items-center gap-4">
