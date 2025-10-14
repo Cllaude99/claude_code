@@ -44,9 +44,10 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
             alt?: string;
           };
 
-          // src가 없으면 기본 img 태그 반환
+          // src가 없으면 기본 img 태그 반환 (예외 케이스)
           if (!src) {
-            return <img {...props} />;
+            // eslint-disable-next-line @next/next/no-img-element
+            return <img alt={alt || ''} {...props} />;
           }
 
           return (
