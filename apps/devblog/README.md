@@ -10,7 +10,7 @@ Next.js 15, TypeScript, MDX로 구축된 현대적인 개발 블로그입니다.
 
 - **📝 MDX 기반 블로그 시스템**: Markdown + JSX로 풍부한 콘텐츠 작성
 - **🎨 다크모드**: light/dark/system 모드 지원 (next-themes)
-- **🔍 실시간 검색**: 제목, 설명, 카테고리 검색 (⌘K / Ctrl+K)
+- **🔍 실시간 검색**: 제목, 설명, 태그 검색 (⌘K / Ctrl+K)
 - **📂 카테고리 필터링**: Tech, CS, Log 카테고리별 포스트 분류
 - **🏷️ 태그 시스템**: 포스트별 태그 지원 (상세 페이지에 표시)
 - **💬 댓글 시스템**: GitHub Discussions 기반 Giscus 댓글

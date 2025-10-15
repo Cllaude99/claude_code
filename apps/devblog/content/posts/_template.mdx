@@ -3,8 +3,8 @@ title: '글 제목을 입력하세요'
 description: '글의 간단한 설명을 입력하세요 (메타 태그와 목록에 표시됩니다)'
 date: '2025-01-15'
 published: true
-category: 'Tech'  # Tech, CS, Log 중 선택
-tags: ['Next.js', 'React', 'TypeScript']  # 선택 사항: 글과 관련된 태그 (포스트 상세 페이지에 표시)
+category: 'Tech' # General, Tech, CS, Log 중 선택
+tags: ['Next.js', 'React', 'TypeScript'] # 선택 사항: 글과 관련된 태그 (포스트 상세 페이지에 표시)
 author: 'Cllaude99'
 ---
 
@@ -17,6 +17,7 @@ author: 'Cllaude99'
 ## 📚 카테고리별 글 작성 가이드
 
 ### 🖥️ Tech 카테고리
+
 **기술 튜토리얼, 프레임워크/라이브러리 사용법, 개발 도구 소개**
 
 ```yaml
@@ -24,6 +25,7 @@ category: 'Tech'
 ```
 
 **예시 구조:**
+
 1. **문제 상황**: 해결하고자 하는 기술적 문제
 2. **해결 방법**: 단계별 구현 및 코드 예제
 3. **결과 및 팁**: 실행 결과, 주의사항, 최적화 팁
@@ -49,6 +51,7 @@ const UserCard = ({ id, name, email }: UserProps) => {
 ---
 
 ### 💻 CS 카테고리
+
 **컴퓨터 과학 이론, 알고리즘, 자료구조, 운영체제, 네트워크**
 
 ```yaml
@@ -56,6 +59,7 @@ category: 'CS'
 ```
 
 **예시 구조:**
+
 1. **개념 설명**: 핵심 개념 정의 및 배경
 2. **원리 분석**: 동작 원리, 시간/공간 복잡도
 3. **구현 예제**: 실제 코드로 구현
@@ -85,6 +89,7 @@ def binary_search(arr, target):
 ---
 
 ### 📝 Log 카테고리
+
 **개발 일지, 트러블슈팅, 프로젝트 회고, 학습 기록**
 
 ```yaml
@@ -92,6 +97,7 @@ category: 'Log'
 ```
 
 **예시 구조:**
+
 1. **상황**: 어떤 작업을 하고 있었는지
 2. **문제 발생**: 발생한 문제와 에러 메시지
 3. **해결 과정**: 시도한 방법들과 실패/성공 경험
@@ -122,24 +128,29 @@ $ npm install next@latest
 
 ```markdown
 # H1 - 메인 제목
+
 ## H2 - 대주제
+
 ### H3 - 소주제
+
 #### H4 - 세부 항목
 ```
 
 ### 텍스트 강조
 
-**굵게**, *기울임*, ~~취소선~~, `인라인 코드`
+**굵게**, _기울임_, ~~취소선~~, `인라인 코드`
 
 ### 리스트
 
 **순서 없는 리스트:**
+
 - 항목 1
 - 항목 2
   - 하위 항목 2-1
   - 하위 항목 2-2
 
 **순서 있는 리스트:**
+
 1. 첫 번째
 2. 두 번째
 3. 세 번째
@@ -147,6 +158,7 @@ $ npm install next@latest
 ### 코드 블록
 
 **JavaScript:**
+
 ```javascript
 function greet(name) {
   return `Hello, ${name}!`;
@@ -156,6 +168,7 @@ console.log(greet('World'));
 ```
 
 **TypeScript:**
+
 ```typescript
 interface User {
   id: number;
@@ -171,6 +184,7 @@ const user: User = {
 ```
 
 **Python:**
+
 ```python
 def greet(name):
     return f"Hello, {name}!"
@@ -198,6 +212,7 @@ print(greet("World"))
 ```
 
 **이미지 파일 구조 권장사항:**
+
 ```
 public/
 ├── images/
@@ -208,6 +223,7 @@ public/
 ```
 
 **사용 예시:**
+
 - `public/testimg.svg` → `![테스트](/testimg.svg)`
 - `public/images/tech/react-diagram.png` → `![React](/images/tech/react-diagram.png)`
 
@@ -233,6 +249,7 @@ public/
 - [ ] 아직 시작하지 않은 작업
 
 **중첩 체크박스:**
+
 - [x] 주요 작업 1
   - [x] 하위 작업 1-1
   - [x] 하위 작업 1-2
@@ -243,11 +260,13 @@ public/
 ### 자동 링크 (GFM)
 
 웹사이트 URL을 그대로 입력하면 자동으로 링크가 됩니다:
+
 - https://github.com
 - https://nextjs.org
 - https://react.dev
 
 이메일도 자동으로 링크됩니다:
+
 - example@email.com
 
 ---
@@ -376,20 +395,24 @@ erDiagram
 ## 💡 글 작성 팁
 
 ### 1. 명확한 제목
+
 - 구체적이고 검색 가능한 제목 사용
 - 예: "React에서 useEffect 사용법" (❌) → "React useEffect로 API 데이터 패칭 구현하기" (✅)
 
 ### 2. 코드 가독성
+
 - 코드 블록에 언어 명시 (syntax highlighting)
 - 주석으로 핵심 로직 설명
 - 완전히 동작하는 예제 코드 제공
 
 ### 3. 구조화
+
 - 헤딩으로 내용 계층 구분
 - 단락은 3~4줄 이내로 유지
 - 리스트와 표로 정보 정리
 
 ### 4. 시각 자료
+
 - Mermaid 다이어그램 활용
 - 스크린샷이나 GIF로 결과 보여주기
 - 표로 비교 정보 정리
@@ -401,6 +424,7 @@ erDiagram
 이 템플릿을 참고하여 카테고리에 맞는 글을 작성해보세요!
 
 **다음 단계:**
+
 1. `content/posts/` 폴더에 새 `.mdx` 파일 생성
 2. 메타데이터(frontmatter) 작성
 3. 카테고리에 맞는 구조로 본문 작성
