@@ -68,7 +68,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   key={tag}
                   className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
                 >
-                  #{tag}
+                  {tag}
                 </span>
               ))}
             </div>
