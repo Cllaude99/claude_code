@@ -11,11 +11,31 @@ interface MarkdownContentProps {
 }
 
 export function MarkdownContent({ content }: MarkdownContentProps) {
+  // 텍스트를 ID로 변환하는 헬퍼 함수
+  const generateId = (text: string) => {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9가-힣\s-]/g, '')
+      .replace(/\s+/g, '-');
+  };
+
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeHighlight]}
       components={{
+        h2(props) {
+          const { children } = props;
+          const text = String(children);
+          const id = generateId(text);
+          return <h2 id={id}>{children}</h2>;
+        },
+        h3(props) {
+          const { children } = props;
+          const text = String(children);
+          const id = generateId(text);
+          return <h3 id={id}>{children}</h3>;
+        },
         code(props) {
           const { node, inline, className, children, ...rest } = props as {
             node?: unknown;
