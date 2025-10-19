@@ -281,39 +281,44 @@ Mark-and-Sweep은 현대 JavaScript 엔진이 사용하는 가비지 컬렉션 �
 
 아래 다이어그램은 Mark-and-Sweep 알고리즘의 동작 과정을 시각화한 것입니다. Mark 단계에서는 루트에서 도달 가능한 객체들을 표시하고, Sweep 단계에서는 표시되지 않은 객체들을 제거합니다.
 
+**1. Mark 단계: 루트부터 도달 가능한 객체 표시**
+
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
 graph TB
-    subgraph Phase1["1. Mark 단계: 루트부터 도달 가능한 객체 표시"]
-        Root1["Root<br/>(window/global)"] --> A1["객체 A<br/>✓ 표시됨"]
-        Root1 --> B1["객체 B<br/>✓ 표시됨"]
-        A1 --> C1["객체 C<br/>✓ 표시됨"]
-        D1["객체 D<br/>❌ 표시 안됨"]
-        E1["객체 E<br/>❌ 표시 안됨"]
-        D1 -.순환 참조.-> E1
-        E1 -.순환 참조.-> D1
-    end
+    Root1["Root<br/>window/global"] --> A1["객체 A<br/>표시됨"]
+    Root1 --> B1["객체 B<br/>표시됨"]
+    A1 --> C1["객체 C<br/>표시됨"]
+    D1["객체 D<br/>표시 안됨"]
+    E1["객체 E<br/>표시 안됨"]
+    D1 -.순환 참조.-> E1
+    E1 -.순환 참조.-> D1
 
-    subgraph Phase2["2. Sweep 단계: 표시되지 않은 객체 제거"]
-        Root2["Root<br/>(window/global)"] --> A2["객체 A<br/>✓ 유지"]
-        Root2 --> B2["객체 B<br/>✓ 유지"]
-        A2 --> C2["객체 C<br/>✓ 유지"]
-        D2["객체 D<br/>🗑️ 제거됨"]
-        E2["객체 E<br/>🗑️ 제거됨"]
-    end
+    style A1 fill:#c5e1a5,stroke:#333,stroke-width:2px
+    style B1 fill:#c5e1a5,stroke:#333,stroke-width:2px
+    style C1 fill:#c5e1a5,stroke:#333,stroke-width:2px
+    style D1 fill:#ef9a9a,stroke:#333,stroke-width:2px
+    style E1 fill:#ef9a9a,stroke:#333,stroke-width:2px
+    style Root1 fill:#e3f2fd,stroke:#333,stroke-width:2px
+```
 
-    Phase1 ==> Phase2
+**2. Sweep 단계: 표시되지 않은 객체 제거**
 
-    style A1 fill:#c5e1a5
-    style B1 fill:#c5e1a5
-    style C1 fill:#c5e1a5
-    style D1 fill:#ef9a9a
-    style E1 fill:#ef9a9a
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
+graph TB
+    Root2["Root<br/>window/global"] --> A2["객체 A<br/>유지"]
+    Root2 --> B2["객체 B<br/>유지"]
+    A2 --> C2["객체 C<br/>유지"]
+    D2["객체 D<br/>제거됨"]
+    E2["객체 E<br/>제거됨"]
 
-    style A2 fill:#c5e1a5
-    style B2 fill:#c5e1a5
-    style C2 fill:#c5e1a5
-    style D2 fill:#ef9a9a
-    style E2 fill:#ef9a9a
+    style A2 fill:#c5e1a5,stroke:#333,stroke-width:2px
+    style B2 fill:#c5e1a5,stroke:#333,stroke-width:2px
+    style C2 fill:#c5e1a5,stroke:#333,stroke-width:2px
+    style D2 fill:#ef9a9a,stroke:#333,stroke-width:2px
+    style E2 fill:#ef9a9a,stroke:#333,stroke-width:2px
+    style Root2 fill:#e3f2fd,stroke:#333,stroke-width:2px
 ```
 
 이를 코드로 살펴보겠습니다.
