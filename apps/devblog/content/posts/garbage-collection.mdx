@@ -337,7 +337,7 @@ function processUser() {
 let result = processUser();
 // 함수 종료 후
 // - globalUser: 여전히 루트에서 접근 가능 → 유지
-// - result(localUser): 반환되어 루트에서 접근 가능 → 유지
+// - localUser: processUser함수에서 localUser가 반환되어 루트에서 접근 가능 → 유지
 // - tempData: 어디에서도 참조하지 않음 → Sweep 단계에서 제거
 ```
 
