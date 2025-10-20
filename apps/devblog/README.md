@@ -1,4 +1,4 @@
-# 개발 블로그 (DevBlog)
+# Cllaude99 개발 블로그 (DevBlog)
 
 Next.js 15, TypeScript, MDX로 구축된 개인 개발 블로그입니다.
 
