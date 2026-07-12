@@ -5,6 +5,6 @@ module.exports = {
   extends: ['@cllaude99/eslint-config/index.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: true,
+    project: ['./tsconfig.json', './tsconfig.storybook.json'],
   },
 };

@@ -1,12 +1,13 @@
 {
   "extends": "@cllaude99/typescript-config/react-library.json",
-  "include": ["src", "storybook/**/*"],
+  "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": "src",
     "declaration": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "types": ["@emotion/react/types/css-prop"]
+    "types": ["@emotion/react/types/css-prop", "react"]
   }
 }
