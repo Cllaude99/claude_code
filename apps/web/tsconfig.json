@@ -1,12 +1,11 @@
 {
   "extends": "@cllaude99/typescript-config/vite.json",
-  "include": ["src", "playwright.config.ts"],
+  "include": ["src", "playwright.config.ts", "vite.config.ts"],
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "types": ["node", "@playwright/test"]
   }
