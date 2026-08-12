@@ -45,16 +45,24 @@ export function CaseStudySection({ caseStudy, index }: CaseStudySectionProps) {
       </div>
 
       {caseStudy.images && caseStudy.images.length > 0 && (
-        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div
+          className={`mb-8 grid gap-4 ${
+            caseStudy.images.length > 1 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'
+          }`}
+        >
           {caseStudy.images.map((image) => (
             <div key={image.src}>
-              <div className="relative h-64 overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 md:h-72">
+              <div
+                className={`relative overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 ${
+                  caseStudy.images!.length > 1 ? 'h-64 md:h-72' : 'h-80 md:h-[28rem]'
+                }`}
+              >
                 <Image
                   src={image.src}
                   alt={image.caption ?? caseStudy.title}
                   fill
                   className="object-contain"
-                  sizes="(min-width: 768px) 50vw, 100vw"
+                  sizes={caseStudy.images!.length > 1 ? '(min-width: 768px) 50vw, 100vw' : '100vw'}
                 />
               </div>
               {image.caption && (
