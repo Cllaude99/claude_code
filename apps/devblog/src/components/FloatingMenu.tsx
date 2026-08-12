@@ -51,6 +51,14 @@ export function FloatingMenu() {
           {/* 메뉴 항목들 */}
           <div className="space-y-2">
             <Link
+              href="/portfolio"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            >
+              <span className="text-sm font-medium">Portfolio</span>
+            </Link>
+
+            <Link
               href="/about"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
