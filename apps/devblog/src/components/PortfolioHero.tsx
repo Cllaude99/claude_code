@@ -5,9 +5,6 @@ import { HiMail } from 'react-icons/hi';
 export function PortfolioHero() {
   return (
     <section className="mb-20">
-      <p className="mb-6 text-xs font-mono uppercase tracking-widest text-primary-600 dark:text-primary-400">
-        Selected Work
-      </p>
       <div className="mb-6 flex items-center gap-6">
         <Image
           src="/favicon.png"
